@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chúc mừng chiến thắng</title>
+  <style>
+    :root {
+      --bg: #fff4f8;
+      --panel: rgba(255, 248, 252, 0.88);
+      --text: #5b3145;
+      --muted: #9b6f84;
+      --accent: #ff9fc5;
+      --accent-2: #ffc2d8;
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.18);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(255, 194, 216, 0.48), transparent 30%),
+        radial-gradient(circle at top right, rgba(255, 159, 197, 0.32), transparent 25%),
+        linear-gradient(135deg, #fff7fb 0%, #ffeef5 45%, #fff4f8 100%);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+    .page {
+      width: min(1100px, 100%);
+      margin: 0 auto;
+      padding: 24px 16px 60px;
+      position: relative;
+    }
+    .hero {
+      background: var(--panel);
+      border: 1px solid rgba(255, 168, 201, 0.35);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      padding: 22px;
+      text-align: center;
+      backdrop-filter: blur(12px);
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      margin: 0 0 10px;
+      font-size: clamp(28px, 5vw, 48px);
+      line-height: 1.08;
+    }
+    .hero p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 16px;
+    }
+    .typewriter {
+      white-space: pre-line;
+      font-size: clamp(18px, 3vw, 28px);
+      font-weight: 700;
+      line-height: 1.7;
+      margin-top: 16px;
+      color: #b5487a;
+      min-height: 180px;
+    }
+    .gallery-wrap {
+      position: relative;
+      width: min(760px, 100%);
+      aspect-ratio: 1 / 0.9;
+      margin: 10px auto 0;
+    }
+    .heart-gallery {
+      position: absolute;
+      inset: 0;
+    }
+    .heart-photo {
+      position: absolute;
+      width: 92px;
+      height: 92px;
+      object-fit: cover;
+      border-radius: 18px;
+      border: 4px solid rgba(255,255,255,0.92);
+      box-shadow: 0 14px 34px rgba(181,72,122,0.22);
+      transition: transform .25s ease;
+      background: #fff;
+    }
+    .heart-photo:hover { transform: scale(1.08) !important; z-index: 3; }
+    .heart-content {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 100px 140px;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .heart {
+      position: fixed;
+      bottom: -40px;
+      z-index: 50;
+      pointer-events: none;
+      animation: floatUp linear forwards;
+      filter: drop-shadow(0 12px 18px rgba(255, 110, 163, 0.25));
+    }
+    @keyframes floatUp {
+      0% { transform: translate3d(0, 0, 0) rotate(0deg); opacity: 0; }
+      10% { opacity: 1; }
+      100% { transform: translate3d(var(--drift), -120vh, 0) rotate(24deg); opacity: 0; }
+    }
+    @keyframes bobA { 0%,100%{transform:translateY(0) rotate(-7deg)} 50%{transform:translateY(-10px) rotate(-3deg)} }
+    @keyframes bobB { 0%,100%{transform:translateY(0) rotate(6deg)} 50%{transform:translateY(-12px) rotate(10deg)} }
+    @keyframes bobC { 0%,100%{transform:translateY(0) rotate(-5deg)} 50%{transform:translateY(-8px) rotate(-9deg)} }
+    @media (max-width: 760px) {
+      .gallery-wrap { aspect-ratio: auto; min-height: 760px; }
+      .heart-photo { width: 72px; height: 72px; }
+      .heart-content { padding: 110px 64px; }
+      .typewriter { min-height: 220px; }
+    }
+  
+#cakeScene {
+ position: fixed; top:0; left:0; width:100%; height:100%;
+ background: radial-gradient(circle,#000020,#000);
+ display:flex; flex-direction:column; justify-content:center; align-items:center;
+ z-index:999;
+}
+.cake { font-size:120px; animation:bounce 1s infinite alternate; }
+.cake-text { color:white; font-size:30px; margin-top:20px; }
+@keyframes bounce { from{transform:translateY(0);} to{transform:translateY(-20px);} }
+@keyframes fadeOut { to{opacity:0; visibility:hidden;} }
+
+/* UPGRADE CAKE */
+#cakeScene {
+ position: fixed; top:0; left:0; width:100%; height:100%;
+ background: radial-gradient(circle,#0a0a2a,#000);
+ display:flex; flex-direction:column; justify-content:center; align-items:center;
+ z-index:999;
+ overflow:hidden;
+}
+
+.cake {
+ font-size:140px;
+ animation: floatCake 2s ease-in-out infinite, glowCake 2s infinite alternate;
+}
+
+.cake-text {
+ color:#fff;
+ font-size:32px;
+ margin-top:20px;
+ animation: fadeText 2s infinite alternate;
+}
+
+@keyframes floatCake {
+ 0%{transform:translateY(0);}
+ 50%{transform:translateY(-25px);}
+ 100%{transform:translateY(0);}
+}
+
+@keyframes glowCake {
+ from{filter:drop-shadow(0 0 10px #ff69b4);}
+ to{filter:drop-shadow(0 0 30px #ffd700);}
+}
+
+@keyframes fadeText {
+ from{opacity:0.6;}
+ to{opacity:1;}
+}
+
+/* PARTICLES */
+#cakeScene::before {
+ content:"✨✨✨✨✨";
+ position:absolute;
+ top:0; left:0;
+ width:100%; height:100%;
+ font-size:30px;
+ display:flex;
+ justify-content:space-around;
+ align-items:center;
+ animation: sparkle 3s linear infinite;
+ opacity:0.3;
+}
+
+@keyframes sparkle {
+ 0%{transform:translateY(-100%);}
+ 100%{transform:translateY(100%);}
+}
+
+/* CENTER HEART (NO CHANGE INSIDE) */
+#heartScene {
+ width:100%;
+ height:100%;
+ display:flex !important;
+ justify-content:center;
+ align-items:center;
+}
+
+/* PRO CAKE */
+.cake { font-size:150px; animation:cakeFloat 2s ease-in-out infinite, cakeGlow 2s infinite alternate; }
+@keyframes cakeFloat {0%,100%{transform:translateY(0);}50%{transform:translateY(-25px);}}
+@keyframes cakeGlow {from{filter:drop-shadow(0 0 10px #ff69b4);}to{filter:drop-shadow(0 0 40px gold);}}
+
+/* CONFETTI */
+.confetti {position:absolute;width:8px;height:8px;animation:fall linear infinite;}
+@keyframes fall {to{transform:translateY(100vh) rotate(360deg);}}
+
+/* HEART SCALE */
+#heartScene > * { transform: scale(1.3); }
+</style>
+</head>
+<body>
+<div id='cakeScene'>
+<div class='cake'>🎂</div>
+<h1 class='cake-text'>Chúc mừng bạn đã chiến thắng!</h1>
+</div>
+<div id='heartScene' style='display:none;'>
+  <div class="page">
+    <div class="hero">
+      <h1>Chúc mừng bạn đã thắng game 🎉</h1>
+      <p>Bạn đã lấy đủ tim và mở khóa đoạn kết chúc mừng.</p>
+    </div>
+
+    <div class="gallery-wrap">
+      <div class="heart-gallery" id="heartGallery"></div>
+      <div class="heart-content">
+        <div class="typewriter" id="typewriter"></div>
+      </div>
+    </div>
+  </div>
+
+  <audio id="bgMusic" src="nhac1.mp3" loop></audio>
+
+  <script>
+    const positions = [
+      [300,542,'A'],[298,531,'B'],[283,502,'C'],[248,460,'A'],[195,411,'B'],[134,358,'C'],[80,300,'A'],[48,238,'B'],[48,175,'C'],[80,120,'A'],
+      [134,86,'B'],[195,81,'C'],[248,104,'A'],[283,142,'B'],[298,176,'C'],[300,190,'A'],[302,176,'B'],[317,142,'C'],[352,104,'A'],[405,81,'B'],
+      [466,86,'C'],[520,120,'A'],[552,175,'B'],[552,238,'C'],[520,300,'A'],[466,358,'B'],[405,411,'C'],[352,460,'A'],[317,502,'B'],[302,531,'C']
+    ];
+    const gallery = document.getElementById('heartGallery');
+    positions.forEach((item, idx) => {
+      const [x, y, styleType] = item;
+      const img = document.createElement('img');
+      img.className = 'heart-photo';
+      img.src = `anh${idx + 1}.jpg`;
+      img.alt = `Ảnh ${idx + 1}`;
+      img.onerror = () => img.style.display = 'none';
+      img.style.left = `${x}px`;
+      img.style.top = `${y}px`;
+      img.style.animation = `${styleType === 'A' ? 'bobA' : styleType === 'B' ? 'bobB' : 'bobC'} ${3 + (idx % 5) * 0.2}s ease-in-out infinite`;
+      gallery.appendChild(img);
+    });
+
+    const typewriter = document.getElementById('typewriter');
+    const text = `Em chúc chỉ iu sinh nhật zui vẻeeeee ❤️
+Happy Birthday ebe của anh 🎂
+em cảm ơn c vì tất cả `;
+    let i = 0;
+    const timer = setInterval(() => {
+      typewriter.textContent += text[i] || '';
+      i += 1;
+      if (i >= text.length) clearInterval(timer);
+    }, 38);
+
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.textContent = ['💖', '💗', '💘', '💞', '💕'][Math.floor(Math.random() * 5)];
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.setProperty('--drift', `${(Math.random() * 180) - 90}px`);
+      heart.style.animationDuration = `${4.8 + Math.random() * 2.8}s`;
+      heart.style.fontSize = `${18 + Math.random() * 14}px`;
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 8000);
+    }
+    let count = 0;
+    const burst = setInterval(() => {
+      createHeart();
+      count += 1;
+      if (count > 42) clearInterval(burst);
+    }, 220);
+
+    const bgMusic = document.getElementById('bgMusic');
+    bgMusic.play().catch(() => {});
+  </script>
+</div>
+<script>
+setTimeout(()=>{
+ document.getElementById('cakeScene').style.animation='fadeOut 1s forwards';
+ setTimeout(()=>{
+  document.getElementById('cakeScene').style.display='none';
+  document.getElementById('heartScene').style.display='block';
+ },1000);
+},3000);
+</script>
+
+<script>
+for (let i = 0; i < 40; i++) {
+ let c = document.createElement("div");
+ c.className = "confetti";
+ c.style.left = Math.random() * 100 + "vw";
+ c.style.animationDuration = (2 + Math.random() * 3) + "s";
+ c.style.background = `hsl(${Math.random()*360},100%,50%)`;
+ document.getElementById("cakeScene")?.appendChild(c);
+}
+</script>
+</body>
+</html>
