@@ -54,14 +54,16 @@
       font-size: 16px;
     }
     .typewriter {
-      white-space: pre-line;
-      font-size: clamp(18px, 3vw, 28px);
-      font-weight: 700;
-      line-height: 1.7;
-      margin-top: 16px;
-      color: #b5487a;
-      min-height: 180px;
-    }
+  white-space: pre-line;
+  font-size: 18px; 
+  font-weight: 700;
+  line-height: 1.7;
+  color: #b5487a;
+  min-height: 180px;
+  
+  /* Thêm dòng này: số âm sẽ dịch sang trái, số dương dịch sang phải */
+  transform: translate(-40px, 30px); 
+}
     .gallery-wrap {
       position: relative;
       width: min(760px, 100%);
